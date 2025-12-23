@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* CONTACT SECTION */
+      .contact-section {
+        background: #fff3e0;
+        padding: 50px 20px;
+        border-top: 3px solid #ff6f00;
+      }
+
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .contact-info {
+        max-width: 350px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #ff6f00;
+      }
+
+      .contact-info h3 {
+        color: #e65c00;
+        margin-bottom: 15px;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        width: 350px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 2px solid #ff6f00;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        background: #fffaf0;
+      }
+
+      .contact-form button {
+        background: #ff6f00;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .contact-form button:hover {
+        background: #e65c00;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <h2>Contact Us</h2>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>
+            <strong>📍 Address:</strong> BharatYatra Travel Pvt. Ltd.,
+            Bengaluru, India
+          </p>
+          <p><strong>📞 Phone:</strong> +91 98765 43210</p>
+          <p><strong>📧 Email:</strong> support@bharatyatra.com</p>
+          <p><strong>⏰ Working Hours:</strong> 9 AM – 7 PM (Mon–Sat)</p>
+        </div>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="5" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

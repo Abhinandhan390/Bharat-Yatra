@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BharatYatra – Explore India</title>
+    <div class="logo-container" style="background-color: #ff6f00;">
+  <img src="BharatYatra.png" alt="BharatYatra Logo" class="logo" />
+  <h1 style="color: #fffaf0; ">BharatYatra</h1>
+</div>
+    <style>
+      /* Basic Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #fffaf0;
+      }
+
+      /* Layout */
+      header,
+      main,
+      footer {
+        padding: 20px;
+      }
+      header {
+        background: #ff6f00;
+        color: white;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        flex-direction: space-around;
+        margin-top: 10px;
+        justify-content: center;
+      }
+      nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        position: relative;
+      }
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: rgb(255, 255, 255);
+        transform: scaleX(0);
+        transition: transform 1s ease-in-out;
+      }
+      .navbar a:hover::after {
+        transform: scaleX(1);
+       
+      }
+
+
+      .hero {
+        background: #ff6f00
+          url("https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1350&q=80")
+          center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section {
+        padding: 40px 20px;
+        text-align: center;
+      }
+      .section h2 {
+        margin-bottom: 20px;
+        color: #d35400;
+        font-size: 1.8rem;
+      }
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      /* ✅ CARD ANIMATIONS + FLIP */
+      .card {
+        width: 280px;
+        height: 350px;
+        perspective: 1000px;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      .card:hover .card-inner {
+        transform: rotateY(180deg) scale(1.05);
+      }
+
+      .card-front,
+      .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        background: white;
+      }
+
+      /* ✅ FRONT SIDE WITH DETAILS */
+      .card-front img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+
+      .card-front .info {
+        padding: 15px;
+        text-align: left;
+      }
+
+      .card-front h3 {
+        color: #e67e22;
+        margin-bottom: 8px;
+      }
+
+      .card-front p {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 10px;
+      }
+
+      .price {
+        color: #27ae60;
+        font-weight: bold;
+      }
+
+      /* ✅ BACK SIDE WITH EXTRA INFO */
+      .card-back {
+        transform: rotateY(180deg);
+        padding: 20px;
+        text-align: left;
+      }
+
+      .card-back h3 {
+        color: #e67e22;
+        margin-bottom: 10px;
+      }
+
+      .card-back p {
+        color: #444;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      footer {
+        background: #2c3e50;
+        color: #ecf0f1;
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+      label {
+        text-decoration: none;
+      }
+
+      /* UNIQUE FEATURE 1: CSS ONLY TYPEWRITER QUOTE BOX */
+      .typewriter-box {
+        width: 80%;
+        margin: 40px auto;
+        padding: 20px;
+        border: 2px solid #ff6f00;
+        border-radius: 12px;
+        font-size: 1.2rem;
+        color: #ff6f00;
+        overflow: hidden;
+        white-space: nowrap;
+        
+        
+       
+        animation: typing 6s steps(100) infinite alternate;
+      }
+      @keyframes typing {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 100%;
+        }
+      }
+      /* UNIQUE FEATURE 4: CSS ONLY EXPANDING FAQ */
+      .faq-container {
+        width: 80%;
+        margin: 40px auto;
+        text-align: left;
+      }
+      .faq input {
+        display: none;
+      }
+      .faq label {
+        display: block;
+        padding: 15px;
+        background: #ff6f00;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 5px;
+        border-radius: 8px;
+      }
+      .faq .content {
+        max-height: 0;
+        overflow: hidden;
+        background: white;
+        transition: max-height 0.5s ease;
+        padding: 0 15px;
+      }
+      .faq input:checked + label + .content {
+        max-height: 200px;
+        padding: 15px;
+      }
+      .Make {
+        background-color: #ff6f00;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 20px auto;
+        display: flex;
+        justify-content: center;
+        width: 100vh;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .Make pr {
+        font-size: 18px;
+      }
+      .Make:hover {
+        background-color: #e65c00;
+        opacity: 0.9;
+      }
+      .navbar input[type="search"] {
+        padding: 5px 8px;
+        border-radius: 5px;
+        border: solid 2px orangered;
+        text-align: left;
+        background-color: #fffaf0;
+        color: #ff6f00;
+        font-size: medium;
+        outline: none;
+        width: fit-content;
+      }
+      .make {
+        text-align: center;
+        
+      }
+      .maketrip a {
+        text-decoration: none;
+      }
+      .checkout a {
+        text-decoration: none;
+        font-size: 20px;
+        color: #ff6f00;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        margin: 20px auto;
+        
+      }
+      .checkout pr {
+        font-size: 18px;
+        font-weight: bold;
+
+      }
+      .checkout::after{
+       content: '';
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       height: 2px;
+       background-color: orangered;
+       transform: scaleX(0);
+       transition: transform 0.4s ease-in-out;
+        
+      }
+      .checkout a:hover::after {
+        transform: scaleX(1);
+       
+      }
+      /* DROPDOWN MENU */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fffaf0;
+  min-width: 180px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  z-index: 1000;
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  color: #ff6f00;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-weight: 600;
+  border-bottom: 1px solid #ffe0c2;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #ffefd5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  text-decoration: none;
+}
+/* Logo Styling */
+      /* Logo Container */
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Circular Logo Styling */
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff; /* white border for contrast */
+  background: #87ceeb; /* matches your theme */
+  padding: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.cards{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+      
+
+     
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      
+      <nav class="navbar">
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+  <a href="#" class="dropbtn">Destinations ▾</a>
+  <div class="dropdown-content">
+    <a href="#">Agra</a>
+    <a href="#">Jaipur</a>
+    <a href="#">Goa</a>
+    <a href="#">Kerala</a>
+    <a href="#">Leh-Ladakh</a>
+    <a href="#">Varanasi</a>
+  </div>
+</div>
+
+        <a href="#">Packages</a>
+        <a href="contactus.html">Contact</a>
+         <a href="aboutus.html">Aboutus</a>
+        <a href="./signup.html">sign up </a>
+
+        <input type="search" placeholder="Search Destinations..	" />&#128269;</input>
+      
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Discover the Beauty of India</h1>
+      <p>
+        From mountains to beaches, temples to deserts — explore Incredible
+        India!
+      </p>
+    </section>
+
+    <!-- UNIQUE FEATURE 1: TYPEWRITER QUOTE -->
+    <div class="typewriter-box">
+      India is a feeling—where at every step, you encounter a new story.
+    </div>
+
+    <div class="cards">
+        <!-- ✅ CARD 1 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Taj Mahal, Agra</h3>
+                <p>Symbol of love built by Shah Jahan.</p>
+                <p class="price">From ₹4,999</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                A UNESCO World Heritage Site known for its white marble beauty.
+                Best visited at sunrise for stunning views.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ CARD 2 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Jaipur, Rajasthan</h3>
+                <p>Pink City with forts & palaces.</p>
+                <p class="price">From ₹6,499</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                Famous for Amber Fort, Hawa Mahal, and vibrant markets. A
+                paradise for culture lovers.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ CARD 3 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Kerala Backwaters</h3>
+                <p>Houseboats & palm-lined canals.</p>
+                <p class="price">From ₹7,999</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                Enjoy serene waterways, coconut groves, and traditional Kerala
+                cuisine on floating houseboats.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ CARD 4 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1581892197913-fd2e407e698a?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Goa</h3>
+                <p>Beaches, nightlife & seafood.</p>
+                <p class="price">From ₹5,999</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                Known for golden beaches, water sports, and Portuguese
+                architecture. Perfect for relaxation.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ CARD 5 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1581793745862-99fde7fa73d2?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Leh-Ladakh</h3>
+                <p>Mountains & monasteries.</p>
+                <p class="price">From ₹12,999</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                A dream for bikers and adventure lovers. Visit Pangong Lake and
+                Nubra Valley.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ CARD 6 -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">
+              <img src="https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=600&q=80" />
+              <div class="info">
+                <h3>Varanasi, UP</h3>
+                <p>Spiritual capital of India.</p>
+                <p class="price">From ₹3,999</p>
+              </div>
+            </div>
+
+            <div class="card-back">
+              <h3>More Info</h3>
+              <p>
+                Experience the Ganga Aarti, ancient temples, and the oldest
+                living city in the world.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        
+    <div class="maketrip">
+     <a href="make.html"><button class="Make" for="submit">
+      <pr>make your own trip according to your wish </pr>
+    </button></a>
+  </div>
+
+
+    </body>
+    <!-- UNIQUE FEATURE 4: CSS ONLY FAQ -->
+    <section class="section">
+      <h2>Travel FAQs</h2>
+      <div class="faq-container">
+        <div class="faq">
+          <input type="checkbox" id="f1" />
+          <label for="f1">Is India safe for solo travel?</label>
+          <div class="content">
+            Yes, with proper planning and local awareness, India is a great
+            place for solo travelers.
+          </div>
+        </div>
+        <div class="faq">
+          <input type="checkbox" id="f2" />
+          <label for="f2">Best time to visit?</label>
+          <div class="content">
+            October to March is ideal for most destinations.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+    <div class="checkout">
+      <a href="checkout.html"> 
+       <pr>CHECK OUT FOR MORE  PACKAGES </pr></a>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 BharatYatra – Made with love for India | Call: 1800-123-4567</p>
+    </footer>
+  </body>
+</html>

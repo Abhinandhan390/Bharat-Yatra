@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="email" required id="" name="" />
+
+        <input type="password" placeholder="password" required id="" name="" />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
+<style>
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fffaf0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://www.pixelstalk.net/wp-content/uploads/2016/08/Travel-Download-Free-Images-HD.jpg);
+  }
+  .card {
+    background-color: #ff6f00;
+    border-radius: 50px;
+    padding: 30px;
+    width: 300px;
+    animation: fadeInBounce 1.2s ease-out;
+  }
+  h2 {
+    text-align: center;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #fffaf0;
+    border: solid black 1px;
+  }
+  button {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 20px;
+    border: #1a1a1a solid 2px;
+    background-color: #ff6f00;
+    color: #1a1a1a bold;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: fit-content;
+    align-self: center;
+  }
+  button:hover {
+    opacity: 60%;
+    transition: 0.15s;
+    background-color: #f48c3d;
+  }
+
+  @keyframes fadeInBounce {
+    0% {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
