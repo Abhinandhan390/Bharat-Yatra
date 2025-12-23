@@ -1,0 +1,112 @@
+<!-- FEEDBACK SECTION -->
+<body>
+  <section class="section feedback-section">
+    <h2>Your Feedback</h2>
+    <p style="margin-bottom: 20px; color: #555">
+      Tell us what you think. Short and honest.
+    </p>
+
+    <form class="feedback-form">
+      <input type="text" placeholder="Your Name (optional)" />
+
+      <input type="email" placeholder="Your Email (optional)" />
+
+      <textarea rows="4" placeholder="Your feedback..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+  <div class="star-rating">
+    <input type="radio" name="rating" id="star5" value="5" />
+    <label for="star5">★</label>
+
+    <input type="radio" name="rating" id="star4" value="4" />
+    <label for="star4">★</label>
+
+    <input type="radio" name="rating" id="star3" value="3" />
+    <label for="star3">★</label>
+
+    <input type="radio" name="rating" id="star2" value="2" />
+    <label for="star2">★</label>
+
+    <input type="radio" name="rating" id="star1" value="1" />
+    <label for="star1">★</label>
+  </div>
+</body>
+<style>
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+  body {
+    background-color: #fffaf0;
+  }
+  .feedback-section {
+    background: #fff;
+    border-top: 2px solid #ff6f00;
+  }
+
+  .feedback-form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #ff6f00;
+    font-size: 1rem;
+    outline: none;
+    background: #fffaf0;
+  }
+
+  .feedback-form input:focus,
+  .feedback-form textarea:focus {
+    border-color: #e65c00;
+  }
+
+  .feedback-form button {
+    background: #ff6f00;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .feedback-form button:hover {
+    background: #e65c00;
+  }
+  /* STAR RATING */
+  .star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .star-rating input {
+    display: none;
+  }
+
+  .star-rating label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+  .star-rating input:checked ~ label,
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+    color: #ff6f00;
+  }
+</style>
